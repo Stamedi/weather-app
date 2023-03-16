@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Nav';
 import Main from './components/Main';
+import Sidebar from './components/Sidebar';
 import raining from './assets/images/raining.gif';
 import './App.css';
 
@@ -18,6 +19,7 @@ function App() {
 
   //   // Do something with your latitude and longitude
   // }
+  console.log(weatherData);
   const units = 'metric';
   const key = '6cb2850d4a00966ba4cb83beed931ccc';
   const getUserCoordinates = () => {
@@ -106,8 +108,9 @@ function App() {
   // });
 
   return (
-    <div className="container mx-auto my-auto content-center">
+    <div className=" container mx-auto my-auto content-center">
       <Navbar cityName={cityName} setCityName={setCityName} handleSubmit={handleSubmit} />
+      <Sidebar />
       {weatherData !== null && (
         <Main
           weatherData={weatherData}
